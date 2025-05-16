@@ -1,7 +1,11 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const deliveryPersonSchema = z.object({
-  name: z.string({ message: "Delivery Person Name In String" }),
-  phone: z.string({message:"phone Number in String"}).length(13,"Provide The Phone Number with country like +91"),
-  
+    name: z.string({ message: 'Delivery person name should be a string' }),
+    phone: z
+        .string({ message: 'Phone should be a string' })
+        .length(13, 'Delivery person phone should be 13 chars long'),
+    warehouseId: z.number({ message: 'Warehouse id should be a number' }),
 });
+
+
