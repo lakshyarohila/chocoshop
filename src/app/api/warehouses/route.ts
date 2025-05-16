@@ -21,3 +21,12 @@ export async function POST(request:Request) {
     }
     
 }
+
+export async function GET() {
+    try {
+        const allwarehouses = await db.select().from(warehouses);
+        return Response.json(allwarehouses)
+    } catch (error) {
+        return Response.json({message:"faild to fetch",error})
+    }
+}
